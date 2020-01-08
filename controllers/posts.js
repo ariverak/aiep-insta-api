@@ -4,6 +4,7 @@ const jwt = require('jwt-simple');
 const moment = require('moment');
 const stream = require('stream');
 const config = require('../config');
+const Jimp = require('jimp')
 const _ = require('lodash')
 
 exports.posts = function(req, res) {
@@ -60,7 +61,7 @@ exports.allPosts = function(req, res) {
 
                 return ({ 
                     user : data.users[folder].username , 
-                    post : `${config.host}/images/posts/${token.id}/${f}`,
+                    post : `${config.host}/images/posts/${folder}/${f}`,
                     created_at : `${date} ${hour.replace('-',':').replace('-',':')}`
                 })
         }));
